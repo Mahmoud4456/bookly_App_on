@@ -5,6 +5,8 @@ publish_to: none
 version: 1.0.0+1
 environment:
   sdk: ^3.5.0
+
+
 dependencies:
   flutter:
     sdk: flutter
@@ -12,6 +14,8 @@ dependencies:
   http: ^1.2.2
   get: ^4.6.6
   font_awesome_flutter: ^10.7.0
+  google_fonts: ^6.2.1
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
