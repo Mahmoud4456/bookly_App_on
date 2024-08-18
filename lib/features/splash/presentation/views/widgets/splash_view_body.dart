@@ -1,10 +1,9 @@
 
-import 'package:demo/constants.dart';
 import 'package:demo/core/utils/assets.dart';
-import 'package:demo/features/home/presentation/views/home_view.dart';
+import 'package:demo/core/utils/routes.dart';
 import 'package:demo/features/splash/presentation/views/widgets/sliding_text.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
+import 'package:go_router/go_router.dart';
 class SplashViewBody extends StatefulWidget {
   const SplashViewBody({super.key});
   @override
@@ -47,8 +46,8 @@ class _SplashViewBodyState extends State<SplashViewBody> with SingleTickerProvid
 
  void navigateToHomePage() {
    Future.delayed( const Duration( seconds: 3),(){
-     Get.to(()=> const HomeView() , transition: Transition.fadeIn , duration: kTranstionDuration );
-
+    // Get.to(()=> const HomeView() , transition: Transition.fadeIn , duration: kTranstionDuration );
+  GoRouter.of(mounted as BuildContext).push(AppRoute.kHomeView);
    });
  }
 }
