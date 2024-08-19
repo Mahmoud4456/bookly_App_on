@@ -20,6 +20,7 @@ abstract class Styles {
   );
   static const textTitle30 = TextStyle(
     fontSize: 30,
-    fontWeight: FontWeight.normal, // font family
+    fontWeight: FontWeight.normal,
+
   );
 }
