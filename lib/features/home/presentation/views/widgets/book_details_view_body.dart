@@ -1,9 +1,10 @@
 import 'package:demo/features/home/presentation/views/widgets/action_buttom_books_details.dart';
 import 'package:demo/features/home/presentation/views/widgets/book_details_app_bar.dart';
+import 'package:demo/features/home/presentation/views/widgets/book_details_list_view.dart';
+import 'package:demo/features/home/presentation/views/widgets/book_details_section.dart';
 import 'package:demo/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:demo/features/home/presentation/views/widgets/rating_book.dart';
 import 'package:flutter/material.dart';
-
 import '../../../../../core/utils/styles.dart';
 
 class BookDetailsViewBody extends StatelessWidget {
@@ -11,38 +12,44 @@ class BookDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width * .18;
-    return  SafeArea(
-      child: Padding(
-        padding:const EdgeInsets.symmetric(horizontal: 30),
-        child: Column(
-          children:  [
-           const BookDetailsAppBar(),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: width ),
-              child: const CustomBookItem(),
-            ),
-           const SizedBox(height: 30,),
-            Text ("The jungle Book", style: Styles.textTitle30.copyWith(
-              fontWeight: FontWeight.w300
-            ),),
-            const SizedBox(height: 6,),
-            Opacity(
-              opacity: .7,
-              child: Text ("Rudyard kipling", style: Styles.textTitle20.copyWith(
-                  fontStyle: FontStyle.italic,
+
+    return const CustomScrollView(
+      slivers: [
+        SliverFillRemaining(
+          child: SafeArea(
+            child: Padding(
+              padding: EdgeInsets.symmetric(horizontal: 30),
+              child: Column(
+                children: [
+                  BookDetailsAppBar(),
+                  BookDetailsSection(),
+                  ActionBottom(),
+                  Padding(
+                    padding: EdgeInsets.only(top: 10),
+                    child: SizedBox(
+                      height: 40,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.centerLeft,
+                    child: Text(
+                      "You can also like ",
+                    ),
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  Expanded(child: BookDetailsListView()),
+                  SizedBox(
+                    height: 40,
+                  ),
+                ],
               ),
-              ),
             ),
-            const SizedBox(height:15,),
-            const RatingBook(mainAxisAlignment:MainAxisAlignment.center,),
-            const SizedBox(height: 37,),
-            const ActionBottom(),
-          ],
+          ),
         ),
-      ),
+      ],
     );
   }
 }
-
 
