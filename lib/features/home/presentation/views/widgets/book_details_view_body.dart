@@ -2,10 +2,8 @@ import 'package:demo/features/home/presentation/views/widgets/action_buttom_book
 import 'package:demo/features/home/presentation/views/widgets/book_details_app_bar.dart';
 import 'package:demo/features/home/presentation/views/widgets/book_details_list_view.dart';
 import 'package:demo/features/home/presentation/views/widgets/book_details_section.dart';
-import 'package:demo/features/home/presentation/views/widgets/custom_book_item.dart';
-import 'package:demo/features/home/presentation/views/widgets/rating_book.dart';
 import 'package:flutter/material.dart';
-import '../../../../../core/utils/styles.dart';
+
 
 class BookDetailsViewBody extends StatelessWidget {
   const BookDetailsViewBody({super.key});
