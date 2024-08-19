@@ -1,3 +1,4 @@
+import 'package:demo/features/home/presentation/views/widgets/action_buttom_books_details.dart';
 import 'package:demo/features/home/presentation/views/widgets/book_details_app_bar.dart';
 import 'package:demo/features/home/presentation/views/widgets/custom_book_item.dart';
 import 'package:demo/features/home/presentation/views/widgets/rating_book.dart';
@@ -10,7 +11,7 @@ class BookDetailsViewBody extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    double width = MediaQuery.of(context).size.width * .16;
+    double width = MediaQuery.of(context).size.width * .18;
     return  SafeArea(
       child: Padding(
         padding:const EdgeInsets.symmetric(horizontal: 30),
@@ -35,6 +36,8 @@ class BookDetailsViewBody extends StatelessWidget {
             ),
             const SizedBox(height:15,),
             const RatingBook(mainAxisAlignment:MainAxisAlignment.center,),
+            const SizedBox(height: 37,),
+            const ActionBottom(),
           ],
         ),
       ),
