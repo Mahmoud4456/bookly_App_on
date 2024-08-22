@@ -5,6 +5,6 @@ import 'package:demo/features/home/domain/entitys/entity.dart';
 abstract class BookRepo{
 
   Future <Either<Failure,List<BookEntity>>> fetchFuturesBooks ();
-  Future <List<BookEntity>> fetchNewestBooks ();
+  Future <Either<Failure,List<BookEntity>>> fetchNewestBooks ();
 
 }
