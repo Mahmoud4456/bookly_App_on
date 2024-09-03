@@ -1,7 +1,9 @@
+import 'package:demo/constants.dart';
 import 'package:demo/features/home/data/models/BookModel.dart';
 import 'package:demo/features/home/domain/entitys/entity.dart';
 
 import '../../../../core/utils/api_service.dart';
+import '../../../../core/utils/functions.dart';
 
 abstract class HomeRemoteDataSource {
   Future <List<BookEntity>> fetchFuturesBooks ();
@@ -18,8 +20,11 @@ class HomeRemoteDataSourceImpl extends HomeRemoteDataSource{
   Future<List<BookEntity>> fetchFuturesBooks() async {
   var data = await apiService.get(endPoint: "volumes?Filtering=free-ebooks&q=programming");
   List<BookEntity> books = getBooksList(data);
+  saveBookData(books ,  kFeaturedBox);
   return books ;
   }
+
+
 
 
 
