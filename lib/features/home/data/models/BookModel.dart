@@ -1,4 +1,4 @@
-import 'domain/entitys/entity.dart';
+import '../../domain/entitys/entity.dart';
 
 /// kind : "books#volume"
 /// id : "mFT_CgAAQBAJ"
@@ -21,7 +21,7 @@ class BookModel extends BookEntity {
       this.searchInfo,}
       ) : super(bookId: id ,
       image: volumeInfo?.imageLinks?.thumbnail,
-      authorName: volumeInfo?.authors?.first,
+      authorName: volumeInfo?.authors?.first ?? "unKnown author ",
       bookName: volumeInfo!.title, price: 0.0,
       rate:0.0,
   );
