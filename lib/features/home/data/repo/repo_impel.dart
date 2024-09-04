@@ -5,6 +5,7 @@ import 'package:demo/features/home/data/data_sources/home_local_data_source.dart
 import 'package:demo/features/home/data/data_sources/home_remote_data_source.dart';
 
 import 'package:demo/features/home/domain/entitys/entity.dart';
+import 'package:dio/dio.dart';
 
 import '../../domain/repos/book_repo.dart';
 
@@ -20,7 +21,14 @@ class HomeRepoImpel extends BookRepo{
    books = await HomeRemoteDataSourceImpl().fetchFuturesBooks();
    return right(books) ;
  } catch (e){
- return left(Failure());
+ if(e is DioException)
+   {
+     return left(
+       ServerFailure.dioError(e)
+   );
+   }
+ return left(ServerFailure(e.toString()));
+
  }
   }
 
@@ -34,8 +42,14 @@ class HomeRepoImpel extends BookRepo{
         }
         books = await HomeRemoteDataSourceImpl().fetchNewestBooks();
         return right(books) ;
-      } catch (e){
-        return left(Failure());
+      }catch (e){
+        if(e is DioException)
+        {
+          return left(
+              ServerFailure.dioError(e)
+          );
+        }
+        return left(ServerFailure(e.toString()));
       }
     }
 
