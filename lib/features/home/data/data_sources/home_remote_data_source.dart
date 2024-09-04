@@ -8,13 +8,12 @@ import '../../../../core/utils/functions.dart';
 abstract class HomeRemoteDataSource {
   Future <List<BookEntity>> fetchFuturesBooks ();
   Future <List<BookEntity>> fetchNewestBooks ();
-  final ApiService apiService ;
 
-  HomeRemoteDataSource(this.apiService);
+
 }
 
 class HomeRemoteDataSourceImpl extends HomeRemoteDataSource{
-  HomeRemoteDataSourceImpl(super.apiService);
+  late final ApiService apiService ;
 
   @override
   Future<List<BookEntity>> fetchFuturesBooks() async {
