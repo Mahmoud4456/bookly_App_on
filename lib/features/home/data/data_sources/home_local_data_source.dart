@@ -1,3 +1,6 @@
+import 'package:demo/constants.dart';
+import 'package:hive_flutter/adapters.dart';
+
 import '../../domain/entitys/entity.dart';
 
 abstract class HomeLocalDataSource {
@@ -8,14 +11,16 @@ abstract class HomeLocalDataSource {
 class HomeLocalDataSourceImpel extends HomeLocalDataSource{
   @override
   List<BookEntity> fetchFuturesBooks() {
-    // TODO: implement fetchFuturesBooks
-    throw UnimplementedError();
+
+    var box = Hive.box<BookEntity>(kFeaturedBox);
+   return box.values.toList();
   }
 
   @override
   List<BookEntity> fetchNewestBooks() {
-    // TODO: implement fetchNewestBooks
-    throw UnimplementedError();
+
+    var box = Hive.box<BookEntity>(kNewestBox);
+    return box.values.toList();
   }
 
 }

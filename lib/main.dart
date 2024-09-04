@@ -7,9 +7,10 @@ import 'package:hive_flutter/adapters.dart';
 
 import 'constants.dart';
 void main () async {
-
+  await Hive.initFlutter();
   Hive.registerAdapter(BookEntityAdapter());
-  await Hive.openBox(kFeaturedBox);
+  await Hive.openBox<BookEntity>(kNewestBox);
+  await Hive.openBox<BookEntity>(kFeaturedBox);
 
   runApp( const Bookly());
 }
