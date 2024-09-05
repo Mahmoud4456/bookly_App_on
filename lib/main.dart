@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hive_flutter/adapters.dart';
+import 'bloc_observer.dart';
 import 'constants.dart';
 import 'features/home/domain/use_cases/fetch_newset_books_use_case.dart';
 import 'features/home/presentation/manager/cubit_feature_books/cubit_feature_books.dart';
@@ -18,6 +19,7 @@ void main() async {
   setupServiceLocator();
   await Hive.openBox<BookEntity>(kNewestBox);
   await Hive.openBox<BookEntity>(kFeaturedBox);
+  Bloc.observer = SimpleBlocObserver();
 
   runApp(const Bookly());
 }
